@@ -5,6 +5,7 @@ import random
 def check_protocol(link):
     """
     Добавляет протокол https:// в случае его отсутствия
+    :param: link(str)
     :return: str
     """
     re_pattern = re.compile(r'^(?:http|ftp)s?://', re.IGNORECASE)
@@ -17,7 +18,7 @@ def check_protocol(link):
 def creating_nickname(link):
     """
     Создает псевдоним страницы
-    :param: link
+    :param: link(str)
     :return: str
     """
     nickname_pattern = re.sub(r'(?:http|ftp)s?://w{0,3}(\.)?', '', link)
@@ -28,8 +29,8 @@ def creating_nickname(link):
 
 def home_address(link):
     """
-    Формирует домашний адрес
-    :param: link
+    Формирует домашний адрес из введенной ссылки
+    :param: link(str)
     :return: str
     """
     home_url = re.sub(r'(?:http|ftp)s?://', '', link)
@@ -41,7 +42,7 @@ def home_address(link):
 def nickname_separation(nickname_string):
     """
     Сокращает псевдоним разделяя его точкой
-    :param: nickname_string
+    :param: nickname_string(str)
     :return: str
     """
     separation_line = re.sub(r'(\w{1,3})(\w{1,2})\w+', r'\1.\2', nickname_string, 1)
@@ -52,7 +53,7 @@ def nickname_separation(nickname_string):
 def creating_suffix(short_nickname, flag=False):
     """
     Добавляет случайные буквы в конец, если суффикс не уникальный, то его длина += 1
-    :param: short_nickname
+    :param: short_nickname(str)
     :return: str
     """
     len_suffix = 2
