@@ -23,5 +23,6 @@
 
 ## Запустите приложение
 
-    bash
+  bash
+  
     python main.py
